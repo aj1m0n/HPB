@@ -14,10 +14,28 @@ Gaoang Wang, Yizhou Wang, Haotian Zhang, Renshu Gu, and Jenq-Neng Hwang.
 \newblock In {\em Proceedings of the 27th ACM International Conference on
   Multimedia}, pp. 482--490, 2019.
 
+\bibitem{tang2018single}
+Zheng Tang, Gaoang Wang, Hao Xiao, Aotian Zheng, and Jenq-Neng Hwang.
+\newblock Single-camera and inter-camera vehicle tracking and 3d speed
+  estimation based on fusion of visual and semantic features.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition workshops}, pp. 108--115, 2018.
+
 \bibitem{bewley2016simple}
 Alex Bewley, Zongyuan Ge, Lionel Ott, Fabio Ramos, and Ben Upcroft.
 \newblock Simple online and realtime tracking.
 \newblock In {\em 2016 IEEE international conference on image processing
   (ICIP)}, pp. 3464--3468. IEEE, 2016.
+
+\bibitem{wojke2017simple}
+Nicolai Wojke, Alex Bewley, and Dietrich Paulus.
+\newblock Simple online and realtime tracking with a deep association metric.
+\newblock In {\em 2017 IEEE international conference on image processing
+  (ICIP)}, pp. 3645--3649. IEEE, 2017.
+
+\bibitem{bochkovskiy2020yolov4}
+Alexey Bochkovskiy, Chien-Yao Wang, and Hong-Yuan~Mark Liao.
+\newblock Yolov4: Optimal speed and accuracy of object detection.
+\newblock {\em arXiv preprint arXiv:2004.10934}, 2020.
 
 \end{thebibliography}

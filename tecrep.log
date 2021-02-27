@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2016/Debian) (preloaded format=platex 2019.4.15)  27 FEB 2021 09:23
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2016/Debian) (preloaded format=platex 2019.4.15)  27 FEB 2021 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -524,16 +524,14 @@ LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <8> not available
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.0pt on input line 8.
 )
-[2
-
-] (./tecrep.aux) ) 
+[2] (./tecrep.aux) ) 
 Here is how much of TeX's memory you used:
- 4081 strings out of 493671
- 50932 string characters out of 6151187
- 108698 words of memory out of 5000000
- 7616 multiletter control sequences out of 15000+600000
+ 4084 strings out of 493671
+ 50988 string characters out of 6151187
+ 109707 words of memory out of 5000000
+ 7619 multiletter control sequences out of 15000+600000
  79428 words of font info for 155 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  34i,7n,33p,856b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tecrep.dvi (2 pages, 11944 bytes).
+Output written on tecrep.dvi (2 pages, 13760 bytes).
