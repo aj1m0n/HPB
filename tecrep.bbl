@@ -8,4 +8,16 @@ Milind Naphade, Shuo Wang, David~C. Anastasiu, Zheng Tang, Ming-Ching Chang,
 \newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
   Pattern Recognition (CVPR) Workshops}, June 2020.
 
+\bibitem{wang2019exploit}
+Gaoang Wang, Yizhou Wang, Haotian Zhang, Renshu Gu, and Jenq-Neng Hwang.
+\newblock Exploit the connectivity: Multi-object tracking with trackletnet.
+\newblock In {\em Proceedings of the 27th ACM International Conference on
+  Multimedia}, pp. 482--490, 2019.
+
+\bibitem{bewley2016simple}
+Alex Bewley, Zongyuan Ge, Lionel Ott, Fabio Ramos, and Ben Upcroft.
+\newblock Simple online and realtime tracking.
+\newblock In {\em 2016 IEEE international conference on image processing
+  (ICIP)}, pp. 3464--3468. IEEE, 2016.
+
 \end{thebibliography}
