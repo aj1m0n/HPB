@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Naphade_2020_CVPR_Workshops}
 Milind Naphade, Shuo Wang, David~C. Anastasiu, Zheng Tang, Ming-Ching Chang,
@@ -33,9 +33,32 @@ Nicolai Wojke, Alex Bewley, and Dietrich Paulus.
 \newblock In {\em 2017 IEEE international conference on image processing
   (ICIP)}, pp. 3645--3649. IEEE, 2017.
 
+\bibitem{kalman1960new}
+Rudolph~Emil Kalman.
+\newblock A new approach to linear filtering and prediction problems.
+\newblock 1960.
+
+\bibitem{jetson}
+NVIDIA.
+\newblock Jetson xavier nx, 2021.
+\newblock
+  \url{https://www.nvidia.com/ja-jp/autonomous-machines/embedded-systems/jetson-xavier-nx/}.
+
 \bibitem{bochkovskiy2020yolov4}
 Alexey Bochkovskiy, Chien-Yao Wang, and Hong-Yuan~Mark Liao.
 \newblock Yolov4: Optimal speed and accuracy of object detection.
 \newblock {\em arXiv preprint arXiv:2004.10934}, 2020.
+
+\bibitem{lin2014microsoft}
+Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva
+  Ramanan, Piotr Doll{\'a}r, and C~Lawrence Zitnick.
+\newblock Microsoft coco: Common objects in context.
+\newblock In {\em European conference on computer vision}, pp. 740--755.
+  Springer, 2014.
+
+\bibitem{googlemap}
+Google.
+\newblock Google maps platform.
+\newblock \url{https://developers.google.com/maps/?hl=ja}.
 
 \end{thebibliography}
