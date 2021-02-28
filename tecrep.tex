@@ -2,7 +2,7 @@
 %% v3.3 [2020/05/14]
 %\documentclass[Proof,technicalreport]{ieicej}
 \documentclass[technicalreport]{ieicej}
-%\usepackage{graphicx}
+\usepackage{graphicx}
 %\usepackage[fleqn]{amsmath}
 %\usepackage{amsthm}
 %\usepackage{amssymb}
@@ -21,7 +21,7 @@
 \def\BibTeX{{\rmfamily B\kern-.05em{\scshape i\kern-.025em b}\kern-.08em
  T\kern-.1667em\lower.7ex\hbox{E}\kern-.125em X}}
 
-\jtitle{Yoloを用いた画像認識による交差点付近におけるリアルタイム車両状態推定}
+\jtitle{Yoloを用いた画像認識による交差点付近における\\リアルタイム車両状態推定}
 \etitle{A Real-time Estimation of Vehicle Status Near an Intersection Using \\ Image Recognition by Yolo}
 \authorlist{%
  \authorentry[anzy@cps.im.dendai.ac.jp]{安齋凌介}{Ryosuke ANZAI}{DTokyo}% 
@@ -102,6 +102,11 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 ５章では，提案システムの有用性や今後の展望について考察する．最後に6章でまとめを述べる．
 
 \section{提案システム}
+\begin{figure}[t]
+  \includegraphics*[bb=0 0 950 500, width=1\linewidth]{./images/system.png}
+  \caption{システム概要}
+  \label{tab:system}
+  \end{figure}
 1章で述べたように，ITSの観点から安価なIoTデバイスの開発が求められている．このデバイスを開発する際の問題点として，
 \begin{itemize}
   \item[(1)]安価であるが故に十分な性能を発揮することが難しいこと
@@ -111,14 +116,19 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 を用いて学習されたYOLOv4を使用することで解決する．
 
 \subsection{概要}
-提案する車両の追跡システムの概要は図に示す．
+提案する車両の追跡システムの概要は図\ref{tab:system}に示す．
 提案するシステムはエッジセンサで車両の追跡を行い，クライアント側で座標データを受け取って，地図上に描画する．
 エッジセンサ側では，検出器にYOLOv4を用いて，SORTアルゴリズム\cite{wojke2017simple}を用いて車両の追跡を行う．
 クライアント側では，ホモグラフィ行列を求め，Google Maps API\cite{googlemap}用いて地図に車両の位置情報を描画を行う．
 また，エッジセンサとクライアントの通信はUDP通信用いている．
 
+\subsection{システム操作方法}
+カメラを交差点か約150m奥の車両まで映る角度で設置する．クライアント側では，ソフトの起動後エッジセンサから送られてくる画像を元に射影変換するための対応点を
+カメラ画像と地図でそれぞれ４点ずつ設定する．
+
 \section{アルゴリズム概要}
 1章で述べたようにエッジセンサ側でSORT，クライアント側で射影変換を用いている．
+
 \subsection{SORTについて}
 検出器によって検出したバウンディングボックス（BBOX）の座標から，フレーム間の変位を線形モデルを用いて近似させる．
 各オブジェクトの状態は次のようにモデル化される．
@@ -130,27 +140,11 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 検出されたBBOXは，カルマンフィルタのフレームワークを用いて，速度成分が最適化されるオブジェクトの状態を更新するために用いられる．
 オブジェクトが検出されていない場合，線形モデルを用いて補正せずに，次の状態を単純に予測する．
 
-\subsection{射影変換}
-検出器によって検出したBBOXの底辺の中点$p$を射影変換し，地図上に投影する．
-中点$p$は次式のようになる．
-\begin{equation}
-  p = [x, y, 1]^T, P = [X, Y, 1]^T
-\end{equation}
-\begin{equation}
-  P' = [X', Y', W']^T = Hp
-\end{equation}
-\begin{equation}
-  P = \frac{1}{W'}P'
-\end{equation}
-ここで，$P$は地図上の座標を表ている．$x$,$y$は画像の座標を表ており，$H$はホモグラフィ行列を表す．
-
 \begin{figure}[!t]
   \begin{algorithm}[H]
       \caption{SORT}
       \label{alg1}
       \begin{algorithmic}[1]
-      \REQUIRE $n \geq 0 \vee x \neq 0$
-      \ENSURE $y = x^n$
       \STATE 動画の読み込み
       \WHILE{}
       \STATE フレームの読み込み
@@ -164,9 +158,29 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
   \end{algorithm}
   \end{figure}
 
+\subsection{射影変換}
+検出器によって検出したBBOXの底辺の中点$p$を射影変換し，地図上に投影する．
+中点$p$は次式のようになる．
+
+\begin{equation}
+  p = [x, y, 1]^T, P = [X, Y, 1]^T
+\end{equation}
+\begin{equation}
+  P' = [X', Y', W']^T = Hp
+\end{equation}
+\begin{equation}
+  P = \frac{1}{W'}P'
+\end{equation}
+ここで，$P$は地図上の座標を表ている．$x$,$y$は画像の座標を表ており，$H$はホモグラフィ行列を表す．
+
 \section{検証結果}
 安価であるが十分な性能で追跡を行えているかを評価とする．
-交通工学に置いて
+\begin{figure}[t]
+  \includegraphics*[bb=0 0 3000 2200, width=1\linewidth]{./images/demo.jpg}
+  \caption{クライアント側のデモシーン}
+  \label{tab:demo}
+  \end{figure}
+  
 \subsection{検証環境}
 検証環境として，図のように機材を設置した．
 また，カメラの解像度は1080pとした．
@@ -182,6 +196,9 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 \end{table}
 
 \subsection{結果}
+図\ref{tab:demo}を見たい．これはクライアント側で描画したものである．地図上部に表示されているチェックマークが各車両の位置を示している．
+リアルタイムで車両の位置を追跡し，動的に表示が変わるようになっている．また，地図下部に表示されているのは実際にカメラから送られてきた画像がBBOXが描画されている．
+
 FPSが2.0〜3.0で推移した．カメラの解像度を下げることで，FPSの値が上がることが確認できるが，オブジェクトの検出率が下がることを確認した．
 また，映像内におけるオブジェクト数が増えるとFPSが低下することを確認した．
 映像を直接読み込むよりもIPカメラを用いた方がオブジェクトの認識が悪いことが確認できた．

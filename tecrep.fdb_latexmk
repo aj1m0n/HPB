@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex tecrep"] 1614479873 "tecrep.aux" "tecrep.bbl" "tecrep" 1614509437
+["bibtex tecrep"] 1614539269 "tecrep.aux" "tecrep.bbl" "tecrep" 1614540392
   "bibsample.bib" 1614448195 2873 2ea752ab40204ea2077ad0fc5e6e18e2 ""
   "junsrt.bst" 0 -1 0 ""
-  "tecrep.aux" 1614509437 746 f0a138f4488bb7cebc590b9f0f8c868c ""
+  "tecrep.aux" 1614540392 804 056a3440d15cddee1e7fbee4d3c70c13 ""
   "tecrep.bcf" 0 -1 0 ""
   (generated)
-  "tecrep.bbl"
   "tecrep.blg"
-["dvipdf"] 1614509437 "tecrep.dvi" "tecrep.pdf" "tecrep" 1614509437
-  "tecrep.dvi" 1614509437 23900 3b4f7375c2d3549a33b4ea0cece30372 "latex"
+  "tecrep.bbl"
+["dvipdf"] 1614540392 "tecrep.dvi" "tecrep.pdf" "tecrep" 1614540392
+  "tecrep.dvi" 1614540392 25148 20b5d5219884276248436beaf07427ed "latex"
   (generated)
   "tecrep.pdf"
-["latex"] 1614509436 "tecrep.tex" "tecrep.dvi" "tecrep" 1614509437
+["latex"] 1614540391 "tecrep.tex" "tecrep.dvi" "tecrep" 1614540392
   "/etc/texmf/web2c/texmf.cnf" 1555363701 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0900.tfm" 1136768653 3584 d3d8ac8b25ca19c0a40b86a5db1e8ccc ""
@@ -47,7 +47,6 @@
   "/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex" 1215376579 2553 4b99aa9667b708dd355926023d705446 ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1463608860 7324 2310d1247db0114eb4726807c8837a0e ""
-  "/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex" 1403829539 2725 fc34ef3ccb37ba15a640e8fca6190bca ""
   "/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex" 1417732693 19231 26434a5656c684f5ffb1f26f98006baa ""
   "/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex" 1403829539 7677 6f5ce7c1124cad7ec57d05b2562bd8fe ""
   "/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty" 1251330371 3249 15763257e50278eef5db1952ccde229c ""
@@ -67,6 +66,12 @@
   "/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1483484472 42324 d951db30d0cb2b811f084fa3f92aec16 ""
   "/usr/share/texlive/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty" 1395693695 14170 4202cf11062745283a9a5fdc97c16c48 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def" 1480098830 6061 50d4229b73605a823fbef0f36b323e59 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty" 1485129665 14574 2878810b0466da67e0d0ab10fdd2f6ff ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty" 1480098830 8125 557ab9f1bfa80d369fb45a914aa8a3b4 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty" 1480098830 2594 d18d5e19aa8239cf867fa670c556d2e9 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty" 1480098830 3980 0a268fbfda01e381fa95821ab13b6aee ""
   "/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd" 1471383769 826 416b85b785f5c45134306644b3ccaa8a ""
   "/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd" 1471383769 549 70a2497c311fc8b19acb02f7607eb4e9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty" 1479595601 98301 4bc430f96ef4cbc458dd41807803e3a9 ""
@@ -88,10 +93,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1488610416 31340 0f53f8665296bf8fe6c697f9505e31d8 ""
   "/var/lib/texmf/web2c/eptex/platex.fmt" 1555364148 4060591 cc531f91e1eb13d21cd5511a8112b683 ""
   "ieicej.cls" 1591704980 112894 4e13fbb3f996084402c3f51357c1b815 ""
-  "tecrep.aux" 1614509437 746 f0a138f4488bb7cebc590b9f0f8c868c ""
-  "tecrep.bbl" 1614479873 2521 9cee7b3b401b071a8876ed41ecd584cd "bibtex tecrep"
-  "tecrep.tex" 1614509435 14343 7954ab11e673a9bbbe80bdd316d2b60f ""
+  "images/demo.jpg" 1614538129 524095 ce3f6d1930a3cadf309f5fe6e57318d1 ""
+  "images/system.png" 1614520617 37654 89f2076bdd83b7fd8898b59f6bbb6369 ""
+  "tecrep.aux" 1614540392 804 056a3440d15cddee1e7fbee4d3c70c13 ""
+  "tecrep.bbl" 1614539269 2521 9cee7b3b401b071a8876ed41ecd584cd "bibtex tecrep"
+  "tecrep.tex" 1614540390 15385 3245a79430c6f8bb56a932edd152db86 ""
   (generated)
   "tecrep.dvi"
-  "tecrep.log"
   "tecrep.aux"
+  "tecrep.log"
