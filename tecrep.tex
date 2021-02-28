@@ -94,7 +94,7 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 を用いて推定していく方法である．\cite{wang2019exploit} \cite{tang2018single} TNTは，カメラ映像内で複雑かつ大量のオブジェクトを追跡することに向いているものの，カメラ映像を全て読み込んで処理するため，リアルタイム性
 はなく，本研究では用いることができない．
 一方でリアルタイムでの処理として，Simple Online and Realtime Tracking（SORT）がある．\cite{bewley2016simple} \cite{wojke2017simple}
-これは，検出されたオブジェクトの座標をカルマンフィルタ\cite{kalman1960new}やハンガリアンアルゴリズムを用いて，リアルタイムでのオブジェクトの追跡を可能としている．
+これは，検出されたオブジェクトの座標をカルマンフィルタ\cite{kalman1960new}を用いて，リアルタイムでのオブジェクトの追跡を可能としている．
 前述で述べたTNTと比べると複雑なMOTを行うことは難しいものの，ある程度規則性を持った車両などのMOTはリアルタイムで処理することが可能である．
 本研究では，アルゴリズムにSORT，安価なエッジセンサとしてJetson Xavier NX\cite{jetson}，オブジェクト検出機としてYolov4\cite{bochkovskiy2020yolov4}を用いて，交差点付近の車両を追跡するシステムを開発した．
 
@@ -130,34 +130,6 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 検出されたBBOXは，カルマンフィルタのフレームワークを用いて，速度成分が最適化されるオブジェクトの状態を更新するために用いられる．
 オブジェクトが検出されていない場合，線形モデルを用いて補正せずに，次の状態を単純に予測する．
 
-\begin{figure}[!t]
-  \begin{algorithm}[H]
-      \caption{SORT}
-      \label{alg1}
-      \begin{algorithmic}[1]
-      \REQUIRE $n \geq 0 \vee x \neq 0$
-      \ENSURE $y = x^n$
-      \STATE $y \leftarrow 1$
-      \IF{$n < 0$}
-      \STATE $X \leftarrow 1 / x$
-      \STATE $N \leftarrow -n$
-      \ELSE
-      \STATE $X \leftarrow x$
-      \STATE $N \leftarrow n$
-      \ENDIF
-      \WHILE{$N \neq 0$}
-      \IF{$N$ is even}
-      \STATE $X \leftarrow X \times X$
-      \STATE $N \leftarrow N / 2$
-      \ELSE[$N$ is odd]
-      \STATE $y \leftarrow y \times X$
-      \STATE $N \leftarrow N - 1$
-      \ENDIF
-      \ENDWHILE
-      \end{algorithmic}
-  \end{algorithm}
-  \end{figure}
-
 \subsection{射影変換}
 検出器によって検出したBBOXの底辺の中点$p$を射影変換し，地図上に投影する．
 中点$p$は次式のようになる．
@@ -172,11 +144,56 @@ MOTでは，リアルタイムか否かで大きく二つにタスクを分け�
 \end{equation}
 ここで，$P$は地図上の座標を表ている．$x$,$y$は画像の座標を表ており，$H$はホモグラフィ行列を表す．
 
+\begin{figure}[!t]
+  \begin{algorithm}[H]
+      \caption{SORT}
+      \label{alg1}
+      \begin{algorithmic}[1]
+      \REQUIRE $n \geq 0 \vee x \neq 0$
+      \ENSURE $y = x^n$
+      \STATE 動画の読み込み
+      \WHILE{}
+      \STATE フレームの読み込み
+      \STATE YOLOv4でオブジェクト探索
+      \IF{Object is True}
+      \STATE $X = [u, v, s, r, \dot{u} , \dot{v} , \dot{s}]^T$ 
+      \STATE $kalmanfliter(X)$
+      \ENDIF
+      \ENDWHILE
+      \end{algorithmic}
+  \end{algorithm}
+  \end{figure}
+
 \section{検証結果}
 安価であるが十分な性能で追跡を行えているかを評価とする．
+交通工学に置いて
 \subsection{検証環境}
+検証環境として，図のように機材を設置した．
+また，カメラの解像度は1080pとした．
+\begin{table}[htb]
+  \begin{center}
+    \caption{機材}
+    \begin{tabular}{|c|c|c|} \hline
+      機材名 &  価格 & 用途 \\ \hline \hline
+      Jetson Xavier NX  & 50,490円 & エッジセンサ \\ \hline 
+      WV-S1510 & 49,820円 & IPカメラ \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
+\subsection{結果}
+FPSが2.0〜3.0で推移した．カメラの解像度を下げることで，FPSの値が上がることが確認できるが，オブジェクトの検出率が下がることを確認した．
+また，映像内におけるオブジェクト数が増えるとFPSが低下することを確認した．
+図
+\section{考察}
+結果より，車両の追跡を行える程度の性能であることを確認した．
 
+\section{まとめ}
+本研究において安価なエッジセンサとしてJetson Xavier NXを用いて，その性能について検証を行った．
+また本研究では，
+
+\section*{謝辞}
+本研究は、一般財団法人トヨタ・モビリティ基金の支援による「自律分散型信号システム研究開発」の一部として実施した。
 
 \bibliography{bibsample} %bibファイルの.bibの前の部分
 \bibliographystyle{junsrt} %引用された順番に出力
